@@ -1,7 +1,7 @@
 {
     "name": "ritaswc/zx-ip-address",
     "description": "Ip address location with IPv6 by Zx Inc.",
-    "license": "Apache",
+    "license": "MIT",
     "authors": [
         {
             "name": "Charles",
