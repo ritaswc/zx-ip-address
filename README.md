@@ -1,7 +1,7 @@
 # IPv6 address locations by Zx Inc.
 IPv6 address locations by Zx Inc.composer php
 
-##### database updated at 2020-03-02 with 138649 records
+##### database updated at 2020-05-06 with 140993 records
 
 ## usage
 ```shell script
