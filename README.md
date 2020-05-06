@@ -9,7 +9,7 @@ composer require ritaswc/zx-ip-address
 ```
 For Example
 ```php
-$tool = \Ritaswc\ZxIPAddress\IPv6Tool::query('240e:e9:8819:0:3::3f9');
+$result = \Ritaswc\ZxIPAddress\IPv6Tool::query('240e:e9:8819:0:3::3f9');
 /*
 $result = [
     "start" => "240e:e9:8800::"
