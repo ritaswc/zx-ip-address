@@ -4,179 +4,203 @@ namespace Ritaswc\ZxIPAddress;
 
 class IPv6Tool
 {
-    public $file;
-    public $fd;
-    public $total;
-    public $db4;
+    const FILE = __DIR__ . '/../database/ipv6wry.db';
+    const FORMAT = 'J2';
+    private static $total;
     // 索引区
-    public $index_start_offset;
-    public $index_end_offset;
-    public $offlen;
-    public $iplen;
+    private static $index_start_offset;
+    private static $index_end_offset;
+    private static $offlen;
+    private static $iplen;
+    private static $has_initialized = false;
 
-    public function __construct($dbipv4 = null)
+    public static function initialize($fd)
     {
-        if (PHP_INT_SIZE < 8) {
-            throw new RuntimeException('64bit OS supported only');
+        if (!static::$has_initialized) {
+            if (PHP_INT_SIZE < 8) {
+                throw new RuntimeException('64bit OS supported only');
+            }
+            if (version_compare(PHP_VERSION, "7.0", "<")) {
+                throw new RuntimeException('php version 7.0 or greater');
+            }
+            static::$index_start_offset = static::read8($fd, 16);
+            static::$offlen = static::read1($fd, 6);
+            static::$iplen = static::read1($fd, 7);
+            static::$total = static::read8($fd, 8);
+            static::$index_end_offset = static::$index_start_offset
+                + (static::$iplen + static::$offlen) * static::$total;
+            static::$has_initialized = true;
         }
-        if (version_compare(PHP_VERSION, "7.0", "<")) {
-            throw new RuntimeException('php version 7.0 or greater');
-        }
-        $this->file = __DIR__ . '/../database/ipv6wry.db';
-        $this->fd = fopen($this->file, "rb");
-        $this->index_start_offset = $this->read8(16);
-        $this->offlen = $this->read1(6);
-        $this->iplen = $this->read1(7);
-        $this->total = $this->read8(8);
-        $this->index_end_offset = $this->index_start_offset + ($this->iplen + $this->offlen) * $this->total;
-        $this->db4 = $dbipv4;
     }
 
-    public function query($ip)
+    /**
+     * query ipv6
+     * @param $ip
+     * @return array
+     */
+    public static function query($ip)
     {
         $ip_bin = inet_pton($ip);
-        if ($ip_bin == false) {
+        if (false === $ip_bin) {
             throw new RuntimeException("error IPv4 address: $ip");
         }
-        if (strlen($ip_bin) != 16) {
+        if (16 !== strlen($ip_bin)) {
             throw new RuntimeException("error IPv6 address: $ip");
         }
-        $ip_num_arr = unpack("J2", $ip_bin);
+        $fd = fopen(static::FILE, 'rb');
+        static::initialize($fd);
+        $ip_num_arr = unpack(static::FORMAT, $ip_bin);
+        // IP地址前半部分转换成有int
         $ip_num1 = $ip_num_arr[1];
+        // IP地址后半部分转换成有int
         $ip_num2 = $ip_num_arr[2];
-        $ip_find = $this->find($ip_num1, $ip_num2, 0, $this->total);
-        $ip_offset = $this->index_start_offset + $ip_find * ($this->iplen + $this->offlen);
-        $ip_offset2 = $ip_offset + $this->iplen + $this->offlen;
-        $ip_start = inet_ntop(pack("J2", $this->read8($ip_offset), 0));
+        $ip_find = static::find($fd, $ip_num1, $ip_num2, 0, static::$total);
+        $ip_offset = static::$index_start_offset + $ip_find * (static::$iplen + static::$offlen);
+        $ip_offset2 = $ip_offset + static::$iplen + static::$offlen;
+        $ip_start = inet_ntop(pack(static::FORMAT, static::read8($fd, $ip_offset), 0));
         try {
-            $ip_end = inet_ntop(pack("J2", $this->read8($ip_offset2) - 1, 0));
+            $ip_end = inet_ntop(pack(static::FORMAT, static::read8($fd, $ip_offset2) - 1, 0));
         } catch (RuntimeException $e) {
             $ip_end = "FFFF:FFFF:FFFF:FFFF::";
         }
-        $ip_record_offset = $this->read8($ip_offset + $this->iplen, $this->offlen);
-        $ip_addr = $this->read_record($ip_record_offset);
+        $ip_record_offset = static::read8($fd, $ip_offset + static::$iplen, static::$offlen);
+        $ip_addr = static::read_record($fd, $ip_record_offset);
         $ip_addr_disp = $ip_addr[0] . " " . $ip_addr[1];
+        if (is_resource($fd)) {
+            fclose($fd);
+        }
         return array("start" => $ip_start, "end" => $ip_end, "addr" => $ip_addr, "disp" => $ip_addr_disp);
     }
 
     /**
      * 读取记录
+     * @param $fd
+     * @param $offset
+     * @return string[]
      */
-    public function read_record($offset)
+    public static function read_record($fd, $offset)
     {
         $record = array(0 => "", 1 => "");
-        $flag = $this->read1($offset);
+        $flag = static::read1($fd, $offset);
         if ($flag == 1) {
-            $location_offset = $this->read8($offset + 1, $this->offlen);
-            return $this->read_record($location_offset);
+            $location_offset = static::read8($fd, $offset + 1, static::$offlen);
+            return static::read_record($fd, $location_offset);
+        }
+        $record[0] = static::read_location($fd, $offset);
+        if ($flag == 2) {
+            $record[1] = static::read_location($fd, $offset + static::$offlen + 1);
         } else {
-            $record[0] = $this->read_location($offset);
-            if ($flag == 2) {
-                $record[1] = $this->read_location($offset + $this->offlen + 1);
-            } else {
-                $record[1] = $this->read_location($offset + strlen($record[0]) + 1);
-            }
+            $record[1] = static::read_location($fd, $offset + strlen($record[0]) + 1);
         }
         return $record;
     }
 
     /**
      * 读取地区
+     * @param $fd
+     * @param $offset
+     * @return string
      */
-    public function read_location($offset)
+    public static function read_location($fd, $offset)
     {
         if ($offset == 0) {
             return "";
         }
-        $flag = $this->read1($offset);
+        $flag = static::read1($fd, $offset);
         // 出错
         if ($flag == 0) {
             return "";
         }
         // 仍然为重定向
         if ($flag == 2) {
-            $offset = $this->read8($offset + 1, $this->offlen);
-            return $this->read_location($offset);
+            $offset = static::read8($fd, $offset + 1, static::$offlen);
+            return static::read_location($fd, $offset);
         }
-        $location = $this->readstr($offset);
-        return $location;
+        return static::readstr($fd, $offset);
     }
 
     /**
      * 查找 ip 所在的索引
+     * @param $fd
+     * @param $ip_num1
+     * @param $ip_num2
+     * @param $l
+     * @param $r
+     * @return mixed
      */
-    public function find($ip_num1, $ip_num2, $l, $r)
+    public static function find($fd, $ip_num1, $ip_num2, $l, $r)
     {
         if ($l + 1 >= $r) {
             return $l;
         }
         $m = intval(($l + $r) / 2);
-        $m_ip1 = $this->read8($this->index_start_offset + $m * ($this->iplen + $this->offlen), $this->iplen);
+        $m_ip1 = static::read8($fd, static::$index_start_offset + $m * (static::$iplen + static::$offlen), static::$iplen);
         $m_ip2 = 0;
-        if ($this->iplen <= 8) {
-            $m_ip1 <<= 8 * (8 - $this->iplen);
+        if (static::$iplen <= 8) {
+            $m_ip1 <<= 8 * (8 - static::$iplen);
         } else {
-            $m_ip2 = $this->read8($this->index_start_offset + $m * ($this->iplen + $this->offlen) + 8, $this->iplen - 8);
-            $m_ip2 <<= 8 * (16 - $this->iplen);
+            $m_ip2 = static::read8($fd, static::$index_start_offset + $m * (static::$iplen + static::$offlen) + 8, static::$iplen - 8);
+            $m_ip2 <<= 8 * (16 - static::$iplen);
         }
-        if ($this->uint64cmp($ip_num1, $m_ip1) < 0) {
-            return $this->find($ip_num1, $ip_num2, $l, $m);
-        } else if ($this->uint64cmp($ip_num1, $m_ip1) > 0) {
-            return $this->find($ip_num1, $ip_num2, $m, $r);
-        } else if ($this->uint64cmp($ip_num2, $m_ip2) < 0) {
-            return $this->find($ip_num1, $ip_num2, $l, $m);
-        } else {
-            return $this->find($ip_num1, $ip_num2, $m, $r);
+        if (static::uint64cmp($ip_num1, $m_ip1) < 0) {
+            return static::find($fd, $ip_num1, $ip_num2, $l, $m);
         }
+        if (static::uint64cmp($ip_num1, $m_ip1) > 0) {
+            return static::find($fd, $ip_num1, $ip_num2, $m, $r);
+        }
+        if (static::uint64cmp($ip_num2, $m_ip2) < 0) {
+            return static::find($fd, $ip_num1, $ip_num2, $l, $m);
+        }
+        return static::find($fd, $ip_num1, $ip_num2, $m, $r);
     }
 
-    public function readraw($offset = null, $size = 0)
+    public static function readraw($fd, $offset = null, $size = 0)
     {
         if (!is_null($offset)) {
-            fseek($this->fd, $offset);
+            fseek($fd, $offset);
         }
-        return fread($this->fd, $size);
+        return fread($fd, $size);
     }
 
-    public function read1($offset = null)
+    public static function read1($fd, $offset = null)
     {
         if (!is_null($offset)) {
-            fseek($this->fd, $offset);
+            fseek($fd, $offset);
         }
-        $a = fread($this->fd, 1);
+        $a = fread($fd, 1);
         return @unpack("C", $a)[1];
     }
 
-    public function read8($offset = null, $size = 8)
+    public static function read8($fd, $offset = null, $size = 8)
     {
         if (!is_null($offset)) {
-            fseek($this->fd, $offset);
+            fseek($fd, $offset);
         }
-        $a = fread($this->fd, $size) . "\0\0\0\0\0\0\0\0";
+        $a = fread($fd, $size) . "\0\0\0\0\0\0\0\0";
         return @unpack("P", $a)[1];
     }
 
-    public function readstr($offset = null)
+    public static function readstr($fd, $offset = null)
     {
         if (!is_null($offset)) {
-            fseek($this->fd, $offset);
+            fseek($fd, $offset);
         }
         $str = "";
-        $chr = $this->read1($offset);
+        $chr = static::read1($fd, $offset);
         while ($chr != 0) {
             $str .= chr($chr);
             $offset++;
-            $chr = $this->read1($offset);
+            $chr = static::read1($fd, $offset);
         }
         return $str;
     }
 
-    public function ip2num($ip)
+    public static function ip2num($ip)
     {
         return unpack("N", inet_pton($ip))[1];
     }
 
-    public function inet_ntoa($nip)
+    public static function inet_ntoa($nip)
     {
         $ip = array();
         for ($i = 3; $i > 0; $i--) {
@@ -188,21 +212,14 @@ class IPv6Tool
         return join(".", $ip);
     }
 
-    public function uint64cmp($a, $b)
+    public static function uint64cmp($a, $b)
     {
         if ($a >= 0 && $b >= 0 || $a < 0 && $b < 0) {
             return $a <=> $b;
-        } else if ($a >= 0 && $b < 0) {
+        }
+        if ($a >= 0 && $b < 0) {
             return -1;
-        } else if ($a < 0 && $b >= 0) {
-            return 1;
         }
-    }
-
-    public function __destruct()
-    {
-        if ($this->fd) {
-            fclose($this->fd);
-        }
+        return 1;
     }
 }

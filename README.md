@@ -9,8 +9,7 @@ composer require ritaswc/zx-ip-address
 ```
 For Example
 ```php
-$tool = new \Ritaswc\ZxIPAddress\IPv6Tool;
-$result = $tool->query('240e:e9:8819:0:3::3f9');
+$tool = \Ritaswc\ZxIPAddress\IPv6Tool::query('240e:e9:8819:0:3::3f9');
 /*
 $result = [
     "start" => "240e:e9:8800::"
@@ -24,10 +23,13 @@ $result = [
  */
 ```
 
-## Official Web Site
-- [IPv6地址查询工具 Nanjing China](http://ip.lsy.cn/)
-- [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org/)
-- [IPv6地址查询工具 Ningbo China](http://ip.ss.zxinc.org//)
+## Official Website
+- [IPv6地址查询工具 Nanjing China](http://ip.lsy.cn)
+- [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
+- [IPv6地址查询工具 Ningbo China](http://ip.ss.zxinc.org)
+
+## Author
+- [Charles的小星球](https://blog.yinghualuo.cn)
 
 ## License
 
