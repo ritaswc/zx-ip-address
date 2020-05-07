@@ -5,13 +5,27 @@ namespace Ritaswc\ZxIPAddress;
 class IPv4Tool
 {
     const FILE = __DIR__ . '/../database/ipv4wry.db';
-    private static $total;
+    private static $total = null;
     // 索引区
     private static $index_start_offset;
     private static $index_end_offset;
     private static $offlen;
     private static $iplen;
     private static $has_initialized = false;
+
+    /**
+     * return database record count
+     * @return int|string
+     */
+    public static function total()
+    {
+        if (null === static::$total) {
+            $fd = fopen(static::FILE, 'rb');
+            static::initialize($fd);
+            fclose($fd);
+        }
+        return static::$total;
+    }
 
     public static function initialize($fd)
     {
