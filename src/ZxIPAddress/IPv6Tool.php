@@ -42,7 +42,7 @@ class IPv6Tool
     {
         $ip_bin = inet_pton($ip);
         if (false === $ip_bin) {
-            throw new RuntimeException("error IPv4 address: $ip");
+            throw new RuntimeException("error IPv6 address: $ip");
         }
         if (16 !== strlen($ip_bin)) {
             throw new RuntimeException("error IPv6 address: $ip");
