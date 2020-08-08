@@ -44,9 +44,9 @@ $result = [
 
 ## Official Website
 - [纯真IPv4数据库](http://www.cz88.net/ip/)
-- [IPv6地址查询工具 Nanjing China](http://ip.lsy.cn)
 - [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
-- [IPv6地址查询工具 Ningbo China](http://ip.ss.zxinc.org)
+- [IPv6地址查询工具 Nanjing China](https://ip.lsy.cn)
+- [IPv6地址查询工具 Ningbo China](https://ip.shanshan-business.com)
 - [IPv6地址查询工具 Shanghai China](https://ip.yinghualuo.cn)
 
 ## Author
