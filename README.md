@@ -2,7 +2,7 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address?ref=badge_shield)
 
 IPv4 address locations by 纯真网络
-##### version 4.0.1.123
+##### database updated at 2020-08-08 with 525869 records
 ## IPv6 address locations by Zx Inc.
 IPv6 address locations by Zx Inc.composer php
 ##### database updated at 2020-05-06 with 140993 records
@@ -47,6 +47,7 @@ $result = [
 - [IPv6地址查询工具 Nanjing China](http://ip.lsy.cn)
 - [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
 - [IPv6地址查询工具 Ningbo China](http://ip.ss.zxinc.org)
+- [IPv6地址查询工具 Shanghai China](https://ip.yinghualuo.cn)
 
 ## Author
 - [Charles的小星球](https://blog.yinghualuo.cn)
