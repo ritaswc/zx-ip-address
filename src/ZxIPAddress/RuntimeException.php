@@ -1,4 +1,4 @@
 <?php
-namespace ritaswc\ZxIPAddress;
+namespace Ritaswc\ZxIPAddress;
 
 class RuntimeException extends \RuntimeException{}
