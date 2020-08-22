@@ -2,7 +2,7 @@
 ##
 ## IPv4 address locations by 纯真网络
 IPv4 address locations by 纯真网络
-##### database updated at 2020-08-08 with 525869 records
+##### database updated at 2020-08-21 with 526193 records
 ## IPv6 address locations by Zx Inc.
 IPv6 address locations by Zx Inc.composer php
 ##### database updated at 2020-05-06 with 140993 records
@@ -45,9 +45,9 @@ $result = [
 ## Official Website
 - [纯真IPv4数据库](http://www.cz88.net/ip/)
 - [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
-- [IPv6地址查询工具 Nanjing China](https://ip.lsy.cn)
+- [IPv6地址查询工具 Nanjing China](https://ip.lsy.cn) unavailable temporarily
 - [IPv6地址查询工具 Ningbo China](https://ip.shanshan-business.com)
-- [IPv6地址查询工具 Shanghai China](https://ip.yinghualuo.cn)
+- [IPv6地址查询工具 Beijing China](https://ip.yinghualuo.cn)
 
 ## Author
 - [Charles的小星球](https://blog.yinghualuo.cn)
