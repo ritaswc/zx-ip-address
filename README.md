@@ -5,7 +5,7 @@
 ### IPv4 address locations by 纯真网络
 IPv4 address locations by 纯真网络
 
-database updated at 2020-09-15 with 527184 records
+database updated at 2020-09-20 with 527217 records
 
 ###
 
