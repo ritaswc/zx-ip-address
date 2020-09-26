@@ -3,15 +3,10 @@
 ## ZxIpAddress with Chunzhen(cz88.net)
 
 ### IPv4 address locations by 纯真网络
-IPv4 address locations by 纯真网络
+database updated at 2020-09-25 with 527232 records
 
-database updated at 2020-09-20 with 527217 records
-
-###
 
 ### IPv6 address locations by Zx Inc.
-IPv6 address locations by Zx Inc.composer php
-
 database updated at 2020-05-06 with 140993 records
 
 ### Usage
