@@ -1,19 +1,20 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address?ref=badge_shield)
 
-## ZxIpAddress with Chunzhen(cz88.net)
+## ZxIpAddress with Chunzhen(cz88.net) 
+##### Being updating every <font color=#FF0000 size=36>5</font> days
 
 ### IPv4 address locations by 纯真网络
-database updated at 2020-09-25 with 527232 records
+database updated at <font color=#FF0000 size=36>2020-09-25</font> with <font color=#FF0000 size=36>527232</font> records
 
 
 ### IPv6 address locations by Zx Inc.
-database updated at 2020-05-06 with 140993 records
+database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>140993</font> records
 
 ### Usage
 ```shell script
 composer require ritaswc/zx-ip-address
 ```
-For Example
+Your code:
 ```php
 $result = \Ritaswc\ZxIPAddress\IPv4Tool::query('114.114.114.114');
 /*
@@ -47,7 +48,6 @@ $result = [
 ### Official Website
 - [纯真IPv4数据库](http://www.cz88.net/ip/)
 - [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
-- [IPv6地址查询工具 Nanjing China](https://ip.lsy.cn) unavailable temporarily
 - [IPv6地址查询工具 Ningbo China](https://ip.shanshan-business.com)
 - [IPv6地址查询工具 Beijing China](https://ip.yinghualuo.cn)
 
