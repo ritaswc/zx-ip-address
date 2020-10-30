@@ -54,6 +54,9 @@ $result = [
 ### Author Blog
 - [Charles的小星球](https://blog.yinghualuo.cn)
 
+### QQ Group
+- ZX IPv6地址库交流群   23871048
+
 ### License
 ZxIpAddress is licensed under [MIT](https://github.com/ritaswc/zx_ip_address/blob/master/LICENSE).
 
