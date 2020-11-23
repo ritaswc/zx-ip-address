@@ -56,6 +56,9 @@ $result = [
 ### QQ Group
 - ZX IPv6地址库交流群   23871048
 
+### Sponsor
+![QrCode](https://blog.yinghualuo.cn/blog/2020/11/sponsor.png)
+
 ### License
 ZxIpAddress is licensed under [MIT](https://github.com/ritaswc/zx_ip_address/blob/master/LICENSE).
 
