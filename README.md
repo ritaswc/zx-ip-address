@@ -1,4 +1,5 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address?ref=badge_shield)
+[![Build Status](https://www.travis-ci.org/ritaswc/zx-ip-address.svg?branch=master)](https://www.travis-ci.org/ritaswc/zx-ip-address)
 
 ## ZxIpAddress with Chunzhen(cz88.net) 
 ##### Being updating every <font color=#FF0000 size=36>5</font> days
