@@ -5,8 +5,8 @@
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/l/ritaswc/zx-ip-address" alt="License"></a>
 
 
-## ZxIpAddress with Chunzhen(cz88.net) 
-##### Being updating every <font color=#FF0000 size=36>5</font> days
+## IPv4/IPv6 offline address database.IPv4/IPv6双栈地址离线数据库。IPv4 by 纯真网络，IPv6 by ZX Inc.
+##### Being updating every <font color=#FF0000 size=36>5</font> days 每<font color=#FF0000 size=36>5</font>天更新一次
 
 ### IPv4 address locations by 纯真网络
 database updated at <font color=#FF0000 size=36>2020-12-15</font> with <font color=#FF0000 size=36>528145</font> records
@@ -14,11 +14,11 @@ database updated at <font color=#FF0000 size=36>2020-12-15</font> with <font col
 ### IPv6 address locations by Zx Inc.
 database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>140993</font> records
 
-### Usage
+### Usage使用方法
 ```shell script
 composer require ritaswc/zx-ip-address
 ```
-Your code:
+Your code:  你的业务代码
 ```php
 $result = \Ritaswc\ZxIPAddress\IPv4Tool::query('114.114.114.114');
 /*
@@ -48,6 +48,19 @@ $result = [
 ]
  */
 ```
+
+### Notice使用提示
+- We don't recommend fork this repository 不推荐fork此仓库
+- We recommend using linux's crontab to update ip database推荐使用linux计划任务定期更新数据库
+
+### Auto update 自动更新数据库
+```shell
+crontab -e
+# add line增加一行，每小时更新一次
+0 * * * * * cd /var/www/your_project && composer require ritaswc/zx-ip-address
+```
+
+
 
 ### Official Website
 - [纯真IPv4数据库](http://www.cz88.net/ip/)
