@@ -2,3 +2,4 @@
 /composer.lock
 /index.php
 /.idea
+/composer-phpunit.lock
