@@ -2,6 +2,6 @@ language: php
 php:
 - '7'
 install:
-  - composer install
+  - COMPOSER=composer-phpunit.json composer install
 test:
   - ./vendor/bin/phpunit
