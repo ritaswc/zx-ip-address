@@ -28,6 +28,16 @@ class IPv6Tool
         return static::$total;
     }
 
+    /**
+     * judge IP address is valid
+     * @param $ip
+     * @return bool
+     */
+    public static function isValidAddress($ip)
+    {
+        return $ip === filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
+    }
+
     public static function initialize($fd)
     {
         if (!static::$has_initialized) {
@@ -54,13 +64,10 @@ class IPv6Tool
      */
     public static function query($ip)
     {
+        if (!self::isValidAddress($ip)) {
+            throw new RuntimeException("error IPv6 address: $ip");
+        }
         $ip_bin = inet_pton($ip);
-        if (false === $ip_bin) {
-            throw new RuntimeException("error IPv6 address: $ip");
-        }
-        if (16 !== strlen($ip_bin)) {
-            throw new RuntimeException("error IPv6 address: $ip");
-        }
         $fd = fopen(static::FILE, 'rb');
         static::initialize($fd);
         $ip_num_arr = unpack(static::FORMAT, $ip_bin);

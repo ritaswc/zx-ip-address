@@ -20,6 +20,10 @@ composer require ritaswc/zx-ip-address
 ```
 Your code:  你的业务代码
 ```php
+$valid = \Ritaswc\ZxIPAddress\IPv4Tool::isValidAddress('114.114.114.114');
+/*
+$valid = true;
+ */
 $result = \Ritaswc\ZxIPAddress\IPv4Tool::query('114.114.114.114');
 /*
 $result = [
@@ -35,6 +39,10 @@ $result = [
 ```
 
 ```php
+$valid = \Ritaswc\ZxIPAddress\IPv6Tool::isValidAddress('240e:e9:8819:0:3::3f9');
+/*
+$valid = true;
+ */
 $result = \Ritaswc\ZxIPAddress\IPv6Tool::query('240e:e9:8819:0:3::3f9');
 /*
 $result = [
