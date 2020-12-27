@@ -71,7 +71,7 @@ crontab -e
 
 
 ### Official Website
-- [纯真IPv4数据库](http://www.cz88.net/ip/)
+- [纯真IPv4数据库](https://www.cz88.net/)
 - [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
 - [IPv6地址查询工具 Ningbo China](https://ip.shanshan-business.com)
 - [IPv6地址查询工具 Beijing China](https://ip.yinghualuo.cn)
