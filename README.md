@@ -14,11 +14,27 @@ database updated at <font color=#FF0000 size=36>2020-12-19</font> with <font col
 ### IPv6 address locations by Zx Inc.
 database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>140993</font> records
 
-### Usage使用方法
+### Usage/使用方法
 ```shell script
 composer require ritaswc/zx-ip-address
 ```
-Your code:  你的业务代码
+Your code/你的业务代码
+```php
+$result = \Ritaswc\ZxIPAddress\IPTool::query('8.8.8.8');
+/*
+$result = [
+    "start" => "8.8.8.8"
+    "end" => "8.8.8.8"
+    "addr" => array:2 [
+        0 => "美国"
+        1 => "加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器"
+    ]
+    "disp" => "美国 加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器"
+]
+ */
+```
+
+
 ```php
 $valid = \Ritaswc\ZxIPAddress\IPv4Tool::isValidAddress('114.114.114.114');
 /*
@@ -57,35 +73,35 @@ $result = [
  */
 ```
 
-### Notice使用提示
-- We don't recommend fork this repository 不推荐fork此仓库
-- We recommend using linux's crontab to update ip database推荐使用linux计划任务定期更新数据库
+### Notice/使用提示
+- We don't recommend forking this repository/不推荐fork此仓库
+- We recommend using linux's crontab to update ip database/推荐使用linux计划任务定期更新数据库
 
-### Auto update 自动更新数据库
+### Auto update database/自动更新数据库
 ```shell
 crontab -e
-# add line增加一行，每小时更新一次
+# add line/增加一行，每小时更新一次
 0 * * * * * cd /var/www/your_project && composer require ritaswc/zx-ip-address
 ```
 
 
 
-### Official Website
+### Official Website/官方网站
 - [纯真IPv4数据库](https://www.cz88.net/)
 - [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
 - [IPv6地址查询工具 Ningbo China](https://ip.shanshan-business.com)
 - [IPv6地址查询工具 Beijing China](https://ip.yinghualuo.cn)
 
-### Author Blog
+### Author Blog/作者博客
 - [Charles的小星球](https://blog.yinghualuo.cn)
 
-### QQ Group
+### QQ Group/QQ交流群
 - ZX IPv6地址库交流群   23871048
 
-### Sponsor
+### Sponsor/赞助
 ![QrCode](https://blog.yinghualuo.cn/blog/2020/11/sponsor.png)
 
-### License
+### License/使用协议
 ZxIpAddress is licensed under [MIT](https://github.com/ritaswc/zx_ip_address/blob/master/LICENSE).
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address?ref=badge_large)
