@@ -32,34 +32,7 @@ $result = [
     "disp" => "美国 加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器"
 ]
  */
-```
-
-
-```php
-$valid = \Ritaswc\ZxIPAddress\IPv4Tool::isValidAddress('114.114.114.114');
-/*
-$valid = true;
- */
-$result = \Ritaswc\ZxIPAddress\IPv4Tool::query('114.114.114.114');
-/*
-$result = [
-    "start" => "114.114.114.114"
-    "end" => "114.114.114.114"
-    "addr" => array:2 [
-        0 => "江苏省南京市"
-        1 => "南京信风网络科技有限公司GreatbitDNS服务器"
-    ]
-    "disp" => "江苏省南京市 南京信风网络科技有限公司GreatbitDNS服务器"
-]
- */
-```
-
-```php
-$valid = \Ritaswc\ZxIPAddress\IPv6Tool::isValidAddress('240e:e9:8819:0:3::3f9');
-/*
-$valid = true;
- */
-$result = \Ritaswc\ZxIPAddress\IPv6Tool::query('240e:e9:8819:0:3::3f9');
+$result = \Ritaswc\ZxIPAddress\IPTool::query('240e:e9:8819:0:3::3f9');
 /*
 $result = [
     "start" => "240e:e9:8800::"
@@ -71,6 +44,15 @@ $result = [
     "disp" => "中国江苏省苏州市 中国电信IDC"
 ]
  */
+$valid = \Ritaswc\ZxIPAddress\IPv4Tool::isValidAddress('114.114.114.114');
+/*
+$valid = true;
+ */
+$valid = \Ritaswc\ZxIPAddress\IPv6Tool::isValidAddress('240e:e9:8819:0:3::3f9');
+/*
+$valid = true;
+ */
+
 ```
 
 ### Notice/使用提示
