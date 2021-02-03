@@ -3,6 +3,7 @@
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/dt/ritaswc/zx-ip-address" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/v/ritaswc/zx-ip-address" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/l/ritaswc/zx-ip-address" alt="License"></a>
+<a href="https://www.php.net"><img src="https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg?style=flat-square" alt="PHP Version >= 7.0"></a>
 
 
 ## IPv4/IPv6 offline address database.IPv4/IPv6双栈地址离线数据库。IPv4 by 纯真网络，IPv6 by ZX Inc.
