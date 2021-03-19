@@ -44,8 +44,8 @@ class IPv6Tool
             if (PHP_INT_SIZE < 8) {
                 throw new RuntimeException('64bit OS supported only');
             }
-            if (version_compare(PHP_VERSION, "7.0", "<")) {
-                throw new RuntimeException('php version 7.0 or greater');
+            if (version_compare(PHP_VERSION, "5.6", "<")) {
+                throw new RuntimeException('php version 5.6 or greater');
             }
             static::$index_start_offset = static::read8($fd, 16);
             static::$offlen = static::read1($fd, 6);
@@ -236,7 +236,13 @@ class IPv6Tool
     public static function uint64cmp($a, $b)
     {
         if ($a >= 0 && $b >= 0 || $a < 0 && $b < 0) {
-            return $a <=> $b;
+            if ($a === $b) {
+                return 0;
+            }
+            if ($a > $b) {
+                return 1;
+            }
+            return -1;
         }
         if ($a >= 0 && $b < 0) {
             return -1;
