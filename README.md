@@ -85,6 +85,6 @@ crontab -e
 ![QrCode](https://blog.yinghualuo.cn/blog/2020/11/sponsor.png)
 
 ### License/使用协议
-ZxIpAddress is licensed under [MIT](https://github.com/ritaswc/zx_ip_address/blob/master/LICENSE).
+ZxIpAddress is licensed under [MIT](https://github.com/ritaswc/zx-ip-address/blob/main/LICENSE).
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address?ref=badge_large)
