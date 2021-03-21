@@ -1,5 +1,5 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fritaswc%2Fzx-ip-address?ref=badge_shield)
-[![Build Status](https://www.travis-ci.org/ritaswc/zx-ip-address.svg?branch=master)](https://travis-ci.com/github/ritaswc/zx-ip-address)
+[![Build Status](https://www.travis-ci.org/ritaswc/zx-ip-address.svg?branch=main)](https://travis-ci.com/github/ritaswc/zx-ip-address)
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/dt/ritaswc/zx-ip-address" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/v/ritaswc/zx-ip-address" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/l/ritaswc/zx-ip-address" alt="License"></a>
