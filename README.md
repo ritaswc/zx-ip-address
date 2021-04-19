@@ -10,7 +10,7 @@
 ##### Being updating every <font color=#FF0000 size=36>5</font> days 每<font color=#FF0000 size=36>5</font>天更新一次
 
 ### IPv4 address locations by 纯真网络
-database updated at <font color=#FF0000 size=36>2021-04-07</font> with <font color=#FF0000 size=36>528910</font> records
+database updated at <font color=#FF0000 size=36>2021-04-14</font> with <font color=#FF0000 size=36>528998</font> records
 
 ### IPv6 address locations by Zx Inc.
 database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>141389</font> records
@@ -71,9 +71,9 @@ crontab -e
 
 ### Official Website/官方网站
 - [纯真IPv4数据库](https://www.cz88.net/)
-- [IPv6地址查询工具 Tokyo Japan](http://ip.zxinc.org)
-- [IPv6地址查询工具 Ningbo China](https://ip.shanshan-business.com)
-- [IPv6地址查询工具 Beijing China](https://ip.yinghualuo.cn)
+- [IPv6地址查询工具 Hongkong/Tokyo](http://ip.zxinc.org)
+- [IPv6地址查询工具 Ningbo](https://ip.shanshan-business.com)
+- [IPv6地址查询工具 Beijing](https://ip.yinghualuo.cn)
 
 ### Author Blog/作者博客
 - [Charles的小星球](https://blog.yinghualuo.cn)
