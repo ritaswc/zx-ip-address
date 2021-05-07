@@ -15,10 +15,6 @@ database updated at <font color=#FF0000 size=36>2021-05-06</font> with <font col
 ### IPv6 address locations by Zx Inc.
 database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>141389</font> records
 
-### tips/提示
-We do not use github repository to save large database file,please use `composer` to install the latest version
-我们不再将巨大的数据库文件存放在仓库内，请使用`composer`来安装最新版本
-
 ### Usage/使用方法
 ```shell script
 composer require ritaswc/zx-ip-address
