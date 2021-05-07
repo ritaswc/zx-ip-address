@@ -10,10 +10,14 @@
 ##### Being updating every <font color=#FF0000 size=36>5</font> days 每<font color=#FF0000 size=36>5</font>天更新一次
 
 ### IPv4 address locations by 纯真网络
-database updated at <font color=#FF0000 size=36>2021-04-28</font> with <font color=#FF0000 size=36>529072</font> records
+database updated at <font color=#FF0000 size=36>2021-05-06</font> with <font color=#FF0000 size=36>529105</font> records
 
 ### IPv6 address locations by Zx Inc.
 database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>141389</font> records
+
+### tips/提示
+We do not use github repository to save large database file,please use `composer` to install the latest version
+我们不再将巨大的数据库文件存放在仓库内，请使用`composer`来安装最新版本
 
 ### Usage/使用方法
 ```shell script
