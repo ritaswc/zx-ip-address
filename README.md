@@ -13,7 +13,7 @@
 database updated at <font color=#FF0000 size=36>2021-05-06</font> with <font color=#FF0000 size=36>529105</font> records
 
 ### IPv6 address locations by Zx Inc.
-database updated at <font color=#FF0000 size=36>2020-05-06</font> with <font color=#FF0000 size=36>141389</font> records
+database updated at <font color=#FF0000 size=36>2021-05-10</font> with <font color=#FF0000 size=36>176292</font> records
 
 ### Usage/使用方法
 ```shell script
