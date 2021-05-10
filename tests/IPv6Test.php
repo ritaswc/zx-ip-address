@@ -18,7 +18,8 @@ class IPv6Test extends TestCase
         $arr = IPv6Tool::query('FFFF:FFFF:FFFF:FFFF::');
         $this->assertEquals('ffff:ffff:ffff:fff0::', $arr['start']);
         $this->assertEquals('ffff:ffff:ffff:ffff::', $arr['end']);
-        $this->assertEquals('ZX公网IPv6库', $arr['addr'][0]);
+        $this->assertEquals('', $arr['addr'][0]);
+        $this->assertEquals('ZX公网IPv6库 20210510版', $arr['addr'][1]);
         try {
             IPv6Tool::query('2409::e7ef::76c9');
         } catch (\Exception $exception) {
