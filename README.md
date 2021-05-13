@@ -79,7 +79,8 @@ crontab -e
 - [Charles的小星球](https://blog.yinghualuo.cn)
 
 ### QQ Group/QQ交流群
-- ZX IPv6地址库交流群   23871048
+- RTBAsia x 纯真IP技术组   482139657
+- ZX IPv6地址库交流群       23871048
 
 ### Sponsor/赞助
 ![QrCode](https://blog.yinghualuo.cn/blog/2020/11/sponsor.png)
