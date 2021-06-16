@@ -19,5 +19,8 @@
         "psr-4": {
             "Ritaswc\\ZxIPAddress\\": "src/ZxIPAddress"
         }
+    },
+    "archive": {
+        "exclude": ["!tool", "!src/database/ipv6wry-country.db"]
     }
 }
