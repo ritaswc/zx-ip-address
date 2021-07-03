@@ -27,3 +27,10 @@ jobs:
 
       - name: Unit Test
         run: php vendor/bin/phpunit
+
+  release:
+    runs-on: ${{ matrix.operating-system }}
+    name: release new verson
+    steps:
+      - name: command
+        run: echo 'done'
