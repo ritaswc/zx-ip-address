@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  unit_test:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
@@ -31,6 +31,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     name: release new verson
+    needs: unit_test
     steps:
       - name: command
         run: echo 'done'
