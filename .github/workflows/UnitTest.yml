@@ -29,7 +29,7 @@ jobs:
         run: php vendor/bin/phpunit
 
   release:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     name: release new verson
     steps:
       - name: command
