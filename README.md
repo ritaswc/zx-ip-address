@@ -10,7 +10,7 @@
 ##### Being updating every <font color=#FF0000 size=36>5</font> days 每<font color=#FF0000 size=36>5</font>天更新一次
 
 ### IPv4 address locations by 纯真网络
-database updated at <font color=#FF0000 size=36>2021-07-21</font> with <font color=#FF0000 size=36>530553</font> records
+database updated at <font color=#FF0000 size=36>2021-07-28</font> with <font color=#FF0000 size=36>530815</font> records
 
 ### IPv6 address locations by Zx Inc.
 database updated at <font color=#FF0000 size=36>2021-05-11</font> with <font color=#FF0000 size=36>176315</font> records
