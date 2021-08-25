@@ -2,6 +2,9 @@
 
 namespace Ritaswc\ZxIPAddress;
 
+/**
+ * @deprecated see https://github.com/ZX-Inc/zxipdb-php
+ */
 class IPv4Tool
 {
     const FILE = __DIR__ . '/../database/ipv4wry.db';

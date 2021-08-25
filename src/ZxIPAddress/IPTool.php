@@ -3,7 +3,9 @@
 
 namespace Ritaswc\ZxIPAddress;
 
-
+/**
+ * @deprecated see https://github.com/ZX-Inc/zxipdb-php
+ */
 class IPTool
 {
     public static function query($ip)
