@@ -3,9 +3,6 @@
 <a href="https://packagist.org/packages/ritaswc/zx-ip-address"><img src="https://img.shields.io/packagist/l/ritaswc/zx-ip-address" alt="License"></a>
 <a href="https://www.php.net"><img src="https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg?style=flat-square" alt="PHP Version >= 5.6"></a>
 
-## 此仓库已经搬迁，不再更新，请看[https://github.com/ZX-Inc/zxipdb-php](https://github.com/ZX-Inc/zxipdb-php)
-## This repository is deprecated，Go to [https://github.com/ZX-Inc/zxipdb-php](https://github.com/ZX-Inc/zxipdb-php)
-
 ### IPv4 address locations by 纯真网络
 database updated at <font color=#FF0000 size=36>2021-08-25</font> with <font color=#FF0000 size=36>528081</font> records
 
