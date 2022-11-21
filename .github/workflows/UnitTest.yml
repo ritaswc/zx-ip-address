@@ -23,7 +23,10 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Install dependencies
-        run: composer install
+        run:
+          - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          - php composer-setup.php
+          - php composer.phar install
 
       - name: Unit Test
         run: php vendor/bin/phpunit
